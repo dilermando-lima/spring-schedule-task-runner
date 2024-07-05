@@ -46,12 +46,12 @@ public class TaskRunnerConfiguration implements SchedulingConfigurer {
     }
 
 
-    private long calculateDelayMilis(LongSupplier totalAvailableSupplier){
+    private long calculateDelayMilis(LongSupplier nextExecutionDelayInMilis){
         try{
-            if( totalAvailableSupplier == null ) 
+            if( nextExecutionDelayInMilis == null ) 
                 return taskRunnerProperties.getNextExecutionDelayInMilisDefault();
             else
-                return totalAvailableSupplier.getAsLong();
+                return nextExecutionDelayInMilis.getAsLong();
         }catch(Exception e){
             LOGGER.error("error when retriving totalAvaliable. error = %s".formatted(e.getLocalizedMessage()), e);
             return taskRunnerProperties.getNextExecutionDelayInMilisOnTotalAvailableError();
