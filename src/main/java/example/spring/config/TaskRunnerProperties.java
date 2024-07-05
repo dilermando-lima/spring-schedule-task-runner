@@ -10,7 +10,7 @@ public class TaskRunnerProperties{
 
     private long nextExecutionDelayInMilisDefault = 10000;
     private long nextExecutionDelayInMilisOnTotalAvailableError = 60000;
-    private int threadPoolSize = 1;
+    private int threadPoolSize = 2;
     
     public long getNextExecutionDelayInMilisDefault() {
         return nextExecutionDelayInMilisDefault;
